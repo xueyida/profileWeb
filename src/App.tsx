@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Divider, Carousel } from 'antd';
 import './App.css';
-import kobe from './images/dearBasketball.mp4';
+import kobe from './images/rose.mp4';
 // import kobe from './images/cpu.flv';
 
 interface ListData {
