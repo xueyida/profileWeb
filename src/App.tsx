@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Divider } from 'antd';
 import './App.css';
 import kobe from './images/rose.mp4';
+import cover from './images/cover.png';
 
 interface ListData {
   icon: string,
@@ -11,12 +12,12 @@ interface ListData {
 
 const data:Array<ListData> = [
   {
-    icon: 'mail',
-    title: '941820581@qq.com'
-  },
-  {
     icon: 'phone',
     title: '18234082909'
+  },
+  {
+    icon: 'mail',
+    title: '941820581@qq.com'
   },
   {
     icon: 'github',
@@ -35,7 +36,7 @@ function App() {
             <Icon type="github" theme="outlined" />
             <Icon type="google" theme="outlined" />
             <Icon type="zhihu" theme="outlined" />
-            <Icon type="wechat" theme="outlined" />
+            {/* <Icon type="wechat" theme="outlined" /> */}
           </div>
         </div>
       </header>
@@ -49,7 +50,7 @@ function App() {
           伪文艺青年
         </div>
         <div className="App-content-description">
-            <video src={kobe} width='45%'  controls/>
+          <video src={kobe}  className="video"  poster={cover} controls/>
         </div>
       </div>
       <footer className="App-footer">
