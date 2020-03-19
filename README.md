@@ -26,14 +26,30 @@
 
     - 给服务自启动
 
+        systemctl enable nginx
+        systemctl disable nginx
+
+        启动时，配置文件添加fork=true，为后台启动
   
   - 后端服务 
 
+    - 做一个后台服务
+
+        - nohup
+            yum provides */nohup
+            nohup npm start &
+
+        - pm2
+    
+    - 后台服务的自启动
 
 
+## 注册服务实例    
 
 ## Reference
 
 [Node+socket.io](https://blog.csdn.net/lizhipeng123321/article/details/79480835)
 
 [参考弹幕代码](https://github.com/beautifulBoys/Bullet-Screen)
+
+[自定义服务](https://www.jianshu.com/p/61582f4beff2)
