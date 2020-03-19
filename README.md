@@ -16,6 +16,22 @@
  - `yarn eject`生成配置文件
 
 
+## Server
+  
+  - Mongodb
+
+    - 安装、启动等
+    
+    - 给mongodb做一个服务
+
+    - 给服务自启动
+
+  
+  - 后端服务 
+
+
+
+
 ## Reference
 
 [Node+socket.io](https://blog.csdn.net/lizhipeng123321/article/details/79480835)
