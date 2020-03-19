@@ -1772,9 +1772,9 @@ acorn-walk@^6.0.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.4, acorn@^6.2.1:
   version "6.4.0"
@@ -4182,7 +4182,7 @@ eslint-config-airbnb@^18.1.0:
 
 eslint-config-prettier@^6.10.0:
   version "6.10.0"
-  resolved "http://r.cnpmjs.org/eslint-config-prettier/download/eslint-config-prettier-6.10.0.tgz#7b15e303bf9c956875c948f6b21500e48ded6a7f"
+  resolved "https://r.cnpmjs.org/eslint-config-prettier/download/eslint-config-prettier-6.10.0.tgz#7b15e303bf9c956875c948f6b21500e48ded6a7f"
   integrity sha1-exXjA7+clWh1yUj2shUA5I3tan8=
   dependencies:
     get-stdin "^6.0.0"
@@ -4263,7 +4263,7 @@ eslint-plugin-jsx-a11y@6.2.3:
 
 eslint-plugin-prettier@^3.1.2:
   version "3.1.2"
-  resolved "http://r.cnpmjs.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.1.2.tgz#432e5a667666ab84ce72f945c72f77d996a5c9ba"
+  resolved "https://r.cnpmjs.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.1.2.tgz#432e5a667666ab84ce72f945c72f77d996a5c9ba"
   integrity sha1-Qy5aZnZmq4TOcvlFxy932Zalybo=
   dependencies:
     prettier-linter-helpers "^1.0.0"
@@ -8661,7 +8661,7 @@ prettier-linter-helpers@^1.0.0:
 
 prettier@^1.19.1:
   version "1.19.1"
-  resolved "http://r.cnpmjs.org/prettier/download/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  resolved "https://r.cnpmjs.org/prettier/download/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha1-99f1/4qc2HKnvkyhQglZVqYHl8s=
 
 pretty-bytes@^5.1.0:
