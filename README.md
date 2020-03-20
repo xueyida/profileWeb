@@ -63,13 +63,13 @@
     ```
 
 
-  - 给服务自启动
+    ### 给服务自启动
     
     ```sh
       systemctl enable mongodb.service
     ```
   
-  -  后端服务 
+  - 后端服务 
 
   > 使用nohup给node做后端服务
 
