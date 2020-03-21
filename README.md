@@ -20,29 +20,70 @@
   
   - Mongodb
 
-    - 安装、启动等
+    ### 安装、启动等
+
+        
+      > 下载 `curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz `
+
+      
+      > 解压 `tar -zxvf mongodb-linux-x86_64-3.0.6.tgz`
+
+      > MongoDB bin目录下的文件添加到path路径中 `export PATH=<mongodb-install-directory>/bin:$PATH`,MongoDB 的安装路径为
+      `mongodb-install-directory`；
+
+      > 运行`./mongod`
+
+      > 后台管理数据库 `./mongo`
+
     
-    - 给mongodb做一个服务
+    ### 给mongodb做systemctl自定义服务
+        
+    > Type=forking后台启动服务
 
-    - 给服务自启动
+    ```sh
 
-        systemctl enable nginx
-        systemctl disable nginx
+      [Unit]
+      Description=mongodb
+      After=network.target remote-fs.target nss-lookup.target
+      [Service]
+      Type=forking
+      ExecStart=/home/mongodb-linux-x86_64-rhel62-3.2.10/bin/mongod --config  /home/mongodb-linux-x86_64-rhel62-3.2.10/mongodb.conf
 
-        启动时，配置文件添加fork=true，为后台启动
+      ExecReload=/bin/kill -s HUP $MAINPID
+
+      ExecStop=/home/mongodb-linux-x86_64-rhel62-3.2.10/bin/mongod --shutdown --config  /home/mongodb-linux-x86_64-rhel62-3.2/mongodb.conf
+
+      PrivateTmp=true
+
+      
+      [Install]
+
+      WantedBy=multi-user.target
+
+    ```
+
+
+    ### 给服务自启动
+    
+    ```sh
+      systemctl enable mongodb.service
+    ```
   
   - 后端服务 
 
-    - 做一个后台服务
+    > 使用nohup给node做后端服务
 
-        - nohup
-            yum provides */nohup
-            nohup npm start &
+      ```sh
+        yum provides */nohup
+        nohup npm start &
+      ```
+            
 
-        - pm2
+    > pm2
     
-    - 后台服务的自启动
-
+  
+  
+      
 
 ## 注册服务实例    
 
