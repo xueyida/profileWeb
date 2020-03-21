@@ -20,7 +20,7 @@
   
   - Mongodb
 
-    ### 安装、启动等
+      ### 安装、启动等
 
         
       > 下载 `curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz `
@@ -68,6 +68,37 @@
     ```sh
       systemctl enable mongodb.service
     ```
+
+    ### 通过navcat for mongodb连接
+
+    > 这里使用的是密码启动，无密码启动需要在数据库config里进行配置
+
+    - 创建用户
+
+    ```sh
+      use admin
+      db.createUser(
+        {
+          user: "adminUserName",
+          pwd: "userPassword",
+          roles:
+          [
+            {
+              roles: "userAdminAnyDatabase",
+              db: "admin"
+            }
+          ]
+        }
+      )
+    ```
+
+    - 登陆mongo客户端
+
+      ```sh
+        
+      ```
+    - 
+
   
   - 后端服务 
 
