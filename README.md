@@ -112,6 +112,13 @@
 
     > pm2
     
+      - `npm i pm2 -g`
+
+      - `pm2 start /var/public/www/app.js --watch --name="node-site"`
+
+      - `pm2 save`
+
+      - `pm2 startup`
   
   
       
