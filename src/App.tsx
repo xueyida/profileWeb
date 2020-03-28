@@ -184,16 +184,6 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <div className="App-header-avatar" /> */}
-        <div className="App-header-top">
-          <div className="App-header-iconWrap">
-            <GithubOutlined />
-            <GoogleOutlined />
-            <ZhihuOutlined />
-          </div>
-        </div>
-      </header>
       <div className="App-content">
         <div className="App-content-description">
           <div className="main">
@@ -203,6 +193,8 @@ function App() {
                 className="video"
                 poster={cover}
                 controls
+                autoPlay
+                muted
                 ref={refvideo}
               />
               <div style={{
@@ -236,15 +228,17 @@ function App() {
                   tab="弹幕列表"
                   key="1"
                 >
-                  {
-                    bulleList.map((item) => {
-                      return (
-                        <div>
-                          {item.content}
-                        </div>
-                      );
-                    })
-                  }
+                  <div className="itemWrap">
+                    {
+                      bulleList.map((item) => {
+                        return (
+                          <div>
+                            {item.content}
+                          </div>
+                        );
+                      })
+                    }
+                  </div>
                 </TabPane>
                
               </Tabs>

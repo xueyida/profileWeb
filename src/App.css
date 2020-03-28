@@ -1,10 +1,7 @@
 @import '~antd/dist/antd.css';
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  min-height: 100%;
 }
 
 .App-header {
@@ -46,17 +43,14 @@
 
 .App-content {
   background-color: #00a5bb;
-  flex: 1 0 auto;
   color: #fff;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
   position: relative;
+  height: 800px;
+  background: url(../src/images/san-diego-114337.jpg);
+  background-size: cover;
+
 }
 
-.App-content-subTitle {
-
-}
 
 .App-content-title {
   font-weight: 700;
@@ -99,15 +93,14 @@
 
 
 .App-footer {
-  height: 10%;
-  background-color: #008fa1;
+  height: 50px;
+  background-color: #000;
   text-align: center;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  flex: 0 0 auto;
 }
 
 .App-footer-item {
@@ -128,16 +121,35 @@
 .dmWrap {
   width: 20%;
   position: absolute;
-  right: 0;
-  height: 100%;
+  right: 12px;
+  height: 80%;
   display: flex;
   flex-direction: column;
+  top: 60px;
 }
 
 .dmWrap .dmContent {
   /* flex: 1 1 auto; */
   height: 90%;
+  overflow-y: hidden;
+}
+
+.dmContent .ant-tabs{
+  height: 100%;
+}
+
+.dmContent .ant-tabs-content {
+  height: 80%;
+}
+
+.dmContent .ant-tabs-tabpane{
+  /* overflow-y: scroll; */
+  height: 100%;
+}
+.itemWrap {
   overflow-y: scroll;
+  height: 100%;
+  color: #fff;
 }
 
 .dmWrap .dmFooter{
@@ -145,6 +157,10 @@
   display: flex;
 }
 
+
+.dmWrap .ant-tabs-nav .ant-tabs-tab-active{
+  color: #fff;
+}
 
 
 
