@@ -1,4 +1,6 @@
 var express = require('express');
+var FileStreamRotator = require('file-stream-rotator');
+var fs = require('fs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -15,6 +17,14 @@ var bullet = require('./server.js');
 
 var app = express();
 
+var logDirectory = __dirname + '/log';
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+var accessLogStream = FileStreamRotator.getStream({
+  date_format: 'YYYYMMDD',
+  filename: logDirectory + '/%DATE%.log',
+  frequency: 'test',
+  verbose: false
+});
 
 // mongoose.connect('mongodb://47.103.206.38:27017/db');
 mongoose.connect('mongodb://47.103.206.38:27017/admin');
@@ -26,7 +36,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('combined', {stream: accessLogStream}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
