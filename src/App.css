@@ -5,50 +5,28 @@
 }
 
 .App-header {
-  height: 120px;
-  background-color: #00bcd4;
-  position: relative;
-  display: flex;
-  flex: 0 0 auto;
-  /* align-content: center */
-  justify-content: center;
-  position: relative;
-  z-index: 233;
+  overflow: hidden;
+  background: #001529;
+  padding-right: 70px;
 }
 
-.App-header-avatar {
-  height: 120px;
-  width: 120px;
-  background-image: url('./images/image.jpg');
+.logo{
+  background: url(./images/logo1.png);
+  float: left;
   background-size: cover;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
+  width: 100px;
+  height: 46px;
+  background-repeat: no-repeat;
+  margin-left: 40px;
 }
 
-
-.App-header-top {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 16px;
+.App-header  .ant-menu{
+  float: right;
 }
 
-.App-header-iconWrap {
-  display: flex;
-  width: 80px;
-  justify-content: space-around;
-  font-size: 18px;
-}
 
 .App-content {
-  background-color: #00a5bb;
-  color: #fff;
-  position: relative;
-  height: 800px;
-  background: url(../src/images/san-diego-114337.jpg);
-  background-size: cover;
-
+  
 }
 
 
@@ -58,17 +36,64 @@
   margin-top: 16px;
 }
 
+
+.home {
+  height: 628px;
+  background-image: url(../src/images/home2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: #fff; */
+  color: #000000e3;
+}
+
+.homeInner {
+  padding-right: 400px;
+  text-align: right;
+}
+
+.home .name{
+  font-size: 70px;
+  display: flex;
+  flex-direction: column;
+  line-height: 70px;
+  text-align: left;
+}
+
+.home .name .first{
+  font-size: 26px;
+  /* color: #0fb9f3; */
+  /* color: rgba(255, 255, 255, 1); */
+
+}
+
+.home .occ{
+  font-size: 36px;
+}
+
 .App-content-description{
   display: flex;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .main {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding-left: 68px;
+  background-color: #00a5bb;
+  color: #fff;
+  position: relative;
+  height: 628px;
+  background: url(../src/images/san-diego-114337.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .App-content-description  .video{
@@ -79,8 +104,8 @@
 
 .videoWrap{
   position: relative;
-  width: 700px;
-  height: 400px;
+  width: 900px;
+  height: 500px;
 }
 
 #canvasRoot {
@@ -93,24 +118,55 @@
 
 
 .App-footer {
-  height: 50px;
+  height: 250px;
   background-color: #000;
   text-align: center;
   color: #fff;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   font-size: 16px;
+  padding: 16px;
+  padding-top: 30px;
+  border-top: 1px solid #333;
 }
 
 .App-footer-item {
   margin: 0 12px;
+  width: 250px;
+  height: 100%;
+  padding:0 16px;
+}
+
+.item-header {
+  text-align: left;
+}
+
+.App-footer-item-about {
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 
 .App-footer-item a{
   color: #fff;
 }
 
+.item-content{
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.item-content a{
+  color: rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  text-align: left;
+}
+
+.App-footer-item span {
+  text-align: left;
+}
 
 
 .App-footer-item-title{
@@ -143,13 +199,15 @@
 }
 
 .dmContent .ant-tabs-tabpane{
-  /* overflow-y: scroll; */
+  overflow-y: hidden;
   height: 100%;
 }
 .itemWrap {
-  overflow-y: scroll;
   height: 100%;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .dmWrap .dmFooter{

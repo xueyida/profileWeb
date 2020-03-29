@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Tabs } from 'antd';
+import { Input, Tabs, Menu, Button } from 'antd';
 import io from 'socket.io-client';
 import { Stage, Layer } from 'react-konva';
 import Konva from 'konva';
@@ -181,19 +181,43 @@ function App() {
   };
 
   
-  
   return (
     <div className="App">
+      <div className="App-header">
+        <div className="logo"/>
+        <Menu
+            mode="horizontal"
+            theme="dark"
+          >
+            <Menu.Item key="1">
+              <a href="#home">Home</a>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <a href="#Demo">Demo</a>
+            </Menu.Item>
+            <Menu.Item key="3">
+              <a href="#About">About</a>
+            </Menu.Item>
+        </Menu>
+      </div>
       <div className="App-content">
+        <div className="home" id="Home">
+          <div className="homeInner">
+            <div className="name">
+              <span className="last">Front-End Engineer</span>
+              <span className="first">& XUE YIDA</span>
+            </div>
+            {/* <div className="occ">Front-End Engineer</div> */}
+          </div>
+        </div>
         <div className="App-content-description">
-          <div className="main">
+          <div className="main" id="Demo">
             <div className="videoWrap">
               <video
                 src={kobe}
                 className="video"
                 poster={cover}
                 controls
-                autoPlay
                 muted
                 ref={refvideo}
               />
@@ -254,39 +278,28 @@ function App() {
           </div>
         </div>
       </div>
-      <footer className="App-footer">
-        {
-          data.map((item) => {
-            return (
-              <span className="App-footer-item">
-                {
-                  item.isLink ? (
-                    <a
-                      href={item.title}
-                      // eslint-disable-next-line react/jsx-no-target-blank
-                      target="_blank"
-                    >
-                      {/* <Icon type={item.icon} /> */}
-                      {item.icon}
-                      <span className="App-footer-item-title">
-                        {item.title}
-                      </span>
-                    </a>
-                  ) : (
-                    <>
-                      {/* <Icon type={item.icon} /> */}
-                      {item.icon}
-                      <span className="App-footer-item-title">
-                        {item.title}
-                      </span>
-                    </>
-                  )
-                }
-                
-              </span>
-            );
-          })
-        }
+      <footer className="App-footer" id="About">
+        <div className="App-footer-item">
+          <div className="item-header">Introduction</div>
+          <div className="item-content">
+            <a target="_blank" href="https://xueyida.github.io/">Project Repository</a>
+          </div>
+        </div>
+        <div className="App-footer-item App-footer-item-about">
+          <div className="item-header">About</div>
+          <div className="item-content">
+            <a target="_blank" href="https://xueyida.github.io/">Blog</a>
+            <a target="_blank" href="https://github.com/xueyida">Github</a>
+            <a target="_blank" href="https://github.com/xueyida/Notea">NoteBook</a>
+          </div>
+        </div>
+        <div className="App-footer-item">
+          <div className="item-header">Todo</div>
+          <div className="item-content">
+            <span>弹幕优化</span>
+            <span>新的demo</span>
+          </div>
+        </div>
       </footer>
     </div>
   );
