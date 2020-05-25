@@ -4,7 +4,6 @@ import io from 'socket.io-client';
 import { Stage, Layer } from 'react-konva';
 import Konva from 'konva';
 // import {IFrame} from 'konva/types/types';
-import { GithubOutlined, GoogleOutlined, ZhihuOutlined, PhoneOutlined, MailOutlined } from '@ant-design/icons';
 import './App.css';
 import { throttle } from 'lodash';
 import kobe from './images/rose.mp4';
@@ -17,25 +16,9 @@ interface ListData {
   isLink?: boolean
 }
 
-const data:Array<ListData> = [
-  {
-    icon: <PhoneOutlined />,
-    title: '18234082909',
-  },
-  {
-    icon: <MailOutlined />,
-    title: '941820581@qq.com',
-  },
-  {
-    icon: <GithubOutlined />,
-    title: 'https://github.com/xueyida',
-    isLink: true,
-  },
-];
-
 const { TabPane } = Tabs;
 
-function callback(key:string) {
+function callback(key: string) {
   // eslint-disable-next-line no-console
   console.log(key);
 }
@@ -56,22 +39,22 @@ function App() {
   const [bulleList, setBullList] = React.useState<Array<BulleListProps>>([
     {
       content: '',
-      currentTime: '', 
+      currentTime: '',
     },
   ]);
   const [layerNode, setLayerNode] = React.useState<any>();
   const [freezeList, setFreezeList] = React.useState<Array<BulleListProps>>([
     {
       content: '',
-      currentTime: '', 
+      currentTime: '',
     },
   ]);
 
   React.useEffect(() => {
-    let bulle:Array<any>;
+    let bulle: Array<any>;
 
     httpServer.emit('login');
-    httpServer.on('loginSuccess', (list:any) => {
+    httpServer.on('loginSuccess', (list: any) => {
       if (list) {
         bulle = list;
         setBullList(list);
@@ -79,13 +62,13 @@ function App() {
       }
     });
 
-    httpServer.on('messageSuccess', (obj:any) => { // 自己的信息发送成功。
+    httpServer.on('messageSuccess', (obj: any) => { // 自己的信息发送成功。
       bulle.push(obj);
       setBullList([...bulle]);
     });
   }, []);
 
-  
+
   const sendBulleFn = React.useCallback(async (v) => {
     if (layerNode) {
       const y = Math.floor(300 * Math.random());
@@ -111,7 +94,7 @@ function App() {
       blueRect.add(text);
 
 
-      layerNode.add(blueRect); 
+      layerNode.add(blueRect);
       await blueRect.to({
         duration: 4,
         x: -500,
@@ -148,11 +131,11 @@ function App() {
     }
   }, [refvideo, freezeList, sendBulleFn]);
 
-  
 
 
 
-  const sendBulle = (v:string) => {
+
+  const sendBulle = (v: string) => {
     let currentTime = '0';
 
     if (refvideo.current) {
@@ -162,13 +145,13 @@ function App() {
     const date = new Date();
 
     const sendTime = {
-      M: (date.getMonth() + 1).toString().length === 1 ? `0${ (date.getMonth() + 1).toString()}` : (date.getMonth() + 1).toString(),
-      D: date.getDay().toString().length === 1 ? `0${ date.getDay().toString()}` : date.getDay().toString(),
-      hh: date.getHours().toString().length === 1 ? `0${ date.getHours().toString()}` : date.getHours().toString(),
-      mm: date.getMinutes().toString().length === 1 ? `0${ date.getMinutes().toString()}` : date.getMinutes().toString(),
-      ss: date.getSeconds().toString().length === 1 ? `0${ date.getSeconds().toString()}` : date.getSeconds().toString(),
+      M: (date.getMonth() + 1).toString().length === 1 ? `0${(date.getMonth() + 1).toString()}` : (date.getMonth() + 1).toString(),
+      D: date.getDay().toString().length === 1 ? `0${date.getDay().toString()}` : date.getDay().toString(),
+      hh: date.getHours().toString().length === 1 ? `0${date.getHours().toString()}` : date.getHours().toString(),
+      mm: date.getMinutes().toString().length === 1 ? `0${date.getMinutes().toString()}` : date.getMinutes().toString(),
+      ss: date.getSeconds().toString().length === 1 ? `0${date.getSeconds().toString()}` : date.getSeconds().toString(),
     };
-    
+
     const a = {
       content: v,
       sendTime,
@@ -180,20 +163,10 @@ function App() {
     httpServer.emit('message', a);
   };
 
-  
-  
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <div className="App-header-avatar" /> */}
-        <div className="App-header-top">
-          <div className="App-header-iconWrap">
-            <GithubOutlined />
-            <GoogleOutlined />
-            <ZhihuOutlined />
-          </div>
-        </div>
-      </header>
       <div className="App-content">
         <div className="App-content-description">
           <div className="main">
@@ -210,14 +183,14 @@ function App() {
                 width: '100%',
                 height: '75%',
                 top: 0,
-                left: 0, 
+                left: 0,
               }}
               >
                 <Stage
                   width={700}
                   height={300}
                 >
-                  <Layer 
+                  <Layer
                     ref={(node) => {
                       setLayerNode(node);
                     }}
@@ -228,26 +201,15 @@ function App() {
           </div>
           <div className="dmWrap">
             <div className="dmContent">
-              <Tabs
-                defaultActiveKey="1"
-                onChange={callback}
-              >
-                <TabPane
-                  tab="弹幕列表"
-                  key="1"
-                >
-                  {
-                    bulleList.map((item) => {
-                      return (
-                        <div>
-                          {item.content}
-                        </div>
-                      );
-                    })
-                  }
-                </TabPane>
-               
-              </Tabs>
+              {
+                bulleList.map((item) => {
+                  return (
+                    <div>
+                      {item.content}
+                    </div>
+                  );
+                })
+              }
             </div>
             <div className="dmFooter">
               <Search
@@ -260,40 +222,6 @@ function App() {
           </div>
         </div>
       </div>
-      <footer className="App-footer">
-        {
-          data.map((item) => {
-            return (
-              <span className="App-footer-item">
-                {
-                  item.isLink ? (
-                    <a
-                      href={item.title}
-                      // eslint-disable-next-line react/jsx-no-target-blank
-                      target="_blank"
-                    >
-                      {/* <Icon type={item.icon} /> */}
-                      {item.icon}
-                      <span className="App-footer-item-title">
-                        {item.title}
-                      </span>
-                    </a>
-                  ) : (
-                    <>
-                      {/* <Icon type={item.icon} /> */}
-                      {item.icon}
-                      <span className="App-footer-item-title">
-                        {item.title}
-                      </span>
-                    </>
-                  )
-                }
-                
-              </span>
-            );
-          })
-        }
-      </footer>
     </div>
   );
 }
